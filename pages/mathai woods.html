@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="../images/logo.jpeg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha384-xrRzNw5KpC7V/pHJ70UzLwvMxJz4Zvc3b8q8kJzlEd7ta2SxWTh7I5CkYz5g0TK6"
+        crossorigin="anonymous">
+
+    
+    <style>
+       
+        
+        .page-container {
+            padding: 50px;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            display: flex;
+            align-items: column;
+            margin-bottom: 30px;
+        }
+
+        .header img {
+            display: block;
+            width: 200px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .contact-info {
+            text-align: center;
+            font-size: 15px;
+            
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+        
+        .service-details {
+            margin-left: 0; 
+            text-align: center; 
+        }
+
+        .service-offered-btn {
+            padding: 10px 20px;
+            background-color: #36a3eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .service-offered-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .service-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center; /* Center the boxes horizontally */
+        }
+
+        .service-box {
+            width: calc(50% - 10px);
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-sizing: border-box; /* Ensure box sizing includes padding and border */
+        }
+
+        .service-box h2 {
+            margin-bottom: 10px;
+            color: black; /* Change the text color to black */
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-box {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .service-box h2 {
+            margin-bottom: 10px;
+            color: black; /* Change the text color to black */
+        }
+
+        .service-box .book-service {
+            position: relative;
+            padding: 20px 40px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease; /* Adding transition for smoother effect */
+        }
+        
+        .service-box .book-service:hover {
+            background-color: #2980b9;
+        }
+
+        .service-box .book-service::after {
+            content: attr(data-price); /* Show the price */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+
+        .service-box .book-service:hover::after {
+            opacity: 1;
+        }
+
+        .reviews {
+            color: black;
+            text-align: left; /* Keep reviews aligned to the left */
+        }
+
+        .review-btn-container {
+            display: flex;
+            justify-content: center; /* Center the button */
+            margin-bottom: 20px;
+        }
+
+        .review-btn {
+            padding: 10px 20px;
+            background-color: #36a3eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .review-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .customer-review {
+            background-color: rgb(39, 106, 195);
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .customer-review.show {
+            display: block;
+            max-height: 1000px; /* Adjust to a larger value for your content */
+            transition: max-height 0.5s ease-in-out;
+        }
+        .customer-info {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 5px;
+        }
+        
+        .customer-info h3 {
+            margin-right: 10px;
+        }
+        
+        .star-ratings {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0; /* Adjust as needed */
+        }
+        
+        .star-ratings i {
+            color: gold;
+            font-size: 20px;
+            margin-right: 5px; /* Spacing between stars and name */
+        }
+        .poster {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(91, 135, 201, 0.493), rgba(0, 0, 0, 0));
+        }
+        html, body {
+            height: 100%;
+        }
+       
+    </style>
+    <title>Mathai Woods</title>
+    
+    
+</head>
+
+<body>
+    <body style="margin: 0; padding: 0; height: 100%;"></body>
+    <div class="poster" style="background-image:linear-gradient(rgba(91, 135, 201, 0.493),rgba(0,0,0,0))">
+    
+        <div class="page-container">
+            <div class="header">
+                <img src="../images\carp\mathaiwoods.png" alt="Symbol">
+            </div>
+            
+            <div class="contact-info">
+                <b><p>Email: mathaiw@gmail.com</p></b>
+                <b><p>Experience: 10 years</p></b>
+                <b><p>Contact: +1 234 567 890</p></b>
+            </div>
+    
+        <div class="service-details">
+            <h2>SERVICES OFFERED</h2>
+            <div class="service-boxes">
+                <div class="service-box">
+                    <h2>Carpentry</h2>
+                    <button class="book-service" data-price="$50">Book Carpentry Service</button>
+                </div>
+                <div class="service-box">
+                    <h2>Any Installation</h2>
+                    <button class="book-service" data-price="$100">Book Installation</button>
+                </div>
+                <div class="service-box">
+                    <h2>Troubleshooting Carpentry Issue</h2>
+                    <button class="book-service" data-price="$75">Book Troubleshooting</button>
+                </div>
+                <div class="service-box">
+                    <h2>Maintenance</h2>
+                    <button class="book-service" data-price="$80">Book Maintenance</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        
+    
+        
+        <div class="reviews">
+            <div class="reviews">
+                <div class="review-btn-container">
+                    <button class="review-btn" onclick="toggleReviews()">Previous Customer Reviews</button>
+                </div>
+            
+            <div class="customer-review" id="johnReview">
+                <div class="customer-info">
+                    <h3>Abrar</h3>
+                    <div class="star-ratings">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <p>Good Service</p>
+            </div>
+            <div class="customer-review" id="amitReview">
+                <div class="customer-info">
+                    <h3>Nitish</h3>
+                    <div class="star-ratings">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <p>Good</p>
+            </div>
+        </div>
+       
+
+        <script>
+            function toggleReviews() {
+                var johnReview = document.getElementById('johnReview');
+                var amitReview = document.getElementById('amitReview');
+                
+                johnReview.classList.toggle('show');
+                amitReview.classList.toggle('show');
+            }
+        </script>
+
+</body>
+
+</html>

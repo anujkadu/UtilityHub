@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            background-image: url(../images/bg.png);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+              
+        
+        header {
+            max-width: 100%;
+            background-color: #302d2d;
+            padding: 20px;
+            
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            text-align: center; 
+        }
+        
+        h1 {
+            margin: 0; 
+        }
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+            color: #fff;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease; /* Smooth transition effect for color change */
+        
+        }
+        
+        nav a:hover {
+            color: #ffd700; /* Change the color to your desired hover color */
+        }
+
+        section {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img {
+            border-radius: 50%; /* This makes the image circular */
+    width: 150px; /* Set width and height to the same value */
+    height: 150px;
+    margin: 0 auto;
+    display: block;
+    object-fit: cover;
+    object-position: center top; /* Center the image vertically */
+}
+
+        .user-info {
+            text-align: center;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.8); 
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-history-section {
+            margin-top: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .booking-history-section button {
+            cursor: pointer;
+            background-color: #b28888;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 12px 24px; 
+            font-size: 16px; 
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+        }
+        
+        .booking-history-section button:hover {
+            background-color: #8c6b6b; 
+        }
+
+        .booking-history {
+            display: none;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-history p {
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .booking-history p:hover {
+            text-decoration: underline;
+        }
+        .booking-details {
+            margin-top: 10px;
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-details div {
+            margin-bottom: 10px;
+        }
+
+        .booking-details p {
+            margin: 5px 0;
+        }
+
+        .booking-details p:first-child {
+            font-weight: bold;
+        }
+        
+        .feedback-section {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column; 
+        }
+
+        .feedback-button {
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .feedback-button:hover {
+            background-color: #218838; /* Darker shade on hover */
+        }
+
+        .feedback-textbox {
+            width: 100%; 
+        }
+
+        .feedback-textbox textarea {
+            width: 100%; 
+            height: auto; 
+            padding: 8px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+        .user-actions {
+            display: flex;
+            justify-content: flex-end; 
+        }
+        .user-actions button {
+            padding: 8px 12px; 
+            font-size: 12px; 
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            margin-top: 10px; 
+        }
+
+        .edit-profile-form {
+            display: none;
+            flex-direction: column;
+            margin-top: 10px;
+            align-items: center; 
+        }
+
+        .edit-profile-form label {
+            margin-bottom: 5px;
+        }
+
+        .edit-profile-form input {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 80%; 
+            box-sizing: border-box;
+        }
+
+        .edit-profile-form button {
+            cursor: pointer;
+            background-color: #000000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px; 
+            font-size: 12px; 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Contact Us</a>
+            
+        </nav>
+        
+        <h1>My Profile</h1>
+    </header>
+
+    <section>
+        <img class="profile-img" src="../images/profile/smart-attractive-asian-glasses-male-standing-smile-with-freshness-joyful-casual-blue-shirt-portrait-white-background.jpg" alt="Profile Picture">
+        <div class="user-info">
+            <h2 id="userName">Jeremy Jacob</h2>
+            <p>Email: <span id="userEmail">jeremyj@gmail.com</span></p>
+            <p>Location: <span id="userLocation">Mumbai, India</span></p>
+            <p>Phone: <span id="phoneNumber">8899323452</span></p>
+            
+        </div>
+
+        <div class="user-actions">
+            <button onclick="toggleEditProfileForm()">Edit Profile</button>
+        </div>
+
+        <div class="edit-profile-form">
+            <label for="editName">Name:</label>
+            <input type="text" id="editName" name="editName" required>
+
+            <label for="editEmail">Email:</label>
+            <input type="email" id="editEmail" name="editEmail" required>
+
+            <label for="editLocation">Location:</label>
+            <input type="text" id="editLocation" name="editLocation" required>
+
+            <label for="editPhoneNumber">Phone:</label>
+            <input type="tel" id="editPhoneNumber" name="editPhoneNumber" required>
+
+            <button onclick="updateProfile()">Save Changes</button>
+        </div>
+    </section>
+
+    <div class="booking-history-section">
+        <button id="bookingHistoryButton" onclick="toggleBookingHistory()">View Booking History</button>
+        <div class="booking-history" id="bookingHistory" style="display: none;">
+            <p onclick="showBookingDetails(1)">Booking #1: Service A - Date: 26-01-2024</p>
+            <p onclick="showBookingDetails(2)">Booking #2: Service B - Date: 20-01-2024</p>
+            <p onclick="showBookingDetails(3)">Booking #3: Service C - Date: 17-10-2023</p>
+        </div>
+        <div class="booking-details" id="bookingDetails" style="display: none;">
+        
+            <div id="bookingDetails1" style="display: none;">
+                <p>Service: Service A</p>
+                <p>Date: 26-01-2024</p>
+                <p>Service Start time :10.30am<br>
+                   Service End Time : 12.30pm
+                </p>
+            </div>
+            <div id="bookingDetails2" style="display: none;">
+                <p>Service: Service B</p>
+                <p>Date: 20-01-2024</p>
+                <p>Service Start time :10.30am<br>
+                   Service End Time : 12.30pm
+                </p>
+            </div>
+            <div id="bookingDetails3" style="display: none;">
+                <p>Service: Service C</p>
+                <p>Date: 17-10-2023</p>
+                <p>Service Start time :10.30am<br>
+                   Service End Time : 12.30pm
+                </p>
+            </div>
+            
+        </div>
+    </div>
+
+    
+    <div class="feedback-section">
+        <button class="feedback-button" onclick="toggleFeedback()">How can we improve</button>
+        <div class="feedback-textbox" id="feedbackTextbox" style="display: none;">
+            <textarea id="feedbackTextarea" rows="4" placeholder="Provide your feedback"></textarea>
+            <button onclick="submitFeedback()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeProfile();
+        });
+
+        function initializeProfile() {
+           
+            var userProfileData = {
+                name: 'Jeremy Jacob',
+                email: 'jeremyj@gmail.com',
+                location: 'Mumbai, India',
+                phoneNumber: '8899323452',
+            };
+
+            
+            document.getElementById('userName').textContent = userProfileData.name;
+            document.getElementById('userEmail').textContent = userProfileData.email;
+            document.getElementById('userLocation').textContent = userProfileData.location;
+            document.getElementById('phoneNumber').textContent = userProfileData.phoneNumber;
+
+            
+            document.getElementById('editName').value = userProfileData.name;
+            document.getElementById('editEmail').value = userProfileData.email;
+            document.getElementById('editLocation').value = userProfileData.location;
+            document.getElementById('editPhoneNumber').value = userProfileData.phoneNumber;
+        }
+
+        function toggleBookingHistory() {
+            var bookingHistory = document.getElementById('bookingHistory');
+            bookingHistory.style.display = (bookingHistory.style.display === 'none' || bookingHistory.style.display === '') ? 'block' : 'none';
+        }
+
+        function toggleFeedback() {
+            var feedbackTextbox = document.querySelector('.feedback-textbox');
+            feedbackTextbox.style.display = (feedbackTextbox.style.display === 'none' || feedbackTextbox.style.display === '') ? 'block' : 'none';
+        }
+
+        function toggleEditProfileForm() {
+            var editProfileForm = document.querySelector('.edit-profile-form');
+            var userNameElement = document.getElementById('userName');
+            var userEmailElement = document.getElementById('userEmail');
+            var userLocationElement = document.getElementById('userLocation');
+            var phoneNumberElement = document.getElementById('phoneNumber');
+
+            var userName = userNameElement.textContent;
+            var userEmail = userEmailElement.textContent;
+            var userLocation = userLocationElement.textContent;
+            var phoneNumber = phoneNumberElement.textContent;
+
+            
+            document.getElementById('editName').value = userName;
+            document.getElementById('editEmail').value = userEmail;
+            document.getElementById('editLocation').value = userLocation;
+            document.getElementById('editPhoneNumber').value = phoneNumber;
+
+            editProfileForm.style.display = (editProfileForm.style.display === 'none' || editProfileForm.style.display === '') ? 'flex' : 'none';
+        }
+
+        function updateProfile() {
+            var editName = document.getElementById('editName').value;
+            var editEmail = document.getElementById('editEmail').value;
+            var editLocation = document.getElementById('editLocation').value;
+            var editPhoneNumber = document.getElementById('editPhoneNumber').value;
+
+           
+            document.getElementById('userName').textContent = editName;
+            document.getElementById('userEmail').textContent = editEmail;
+            document.getElementById('userLocation').textContent = editLocation;
+            document.getElementById('phoneNumber').textContent = editPhoneNumber;
+
+            
+            toggleEditProfileForm();
+        }
+    </script>
+    <script>
+        
+
+        function showBookingDetails(bookingNumber) {
+            
+            var selectedDetailsElement = document.getElementById('bookingDetails' + bookingNumber);
+            if (selectedDetailsElement) {
+                var displayValue = (selectedDetailsElement.style.display === 'none' || selectedDetailsElement.style.display === '') ? 'block' : 'none';
+                selectedDetailsElement.style.display = displayValue;
+            }
+
+            
+            for (var i = 1; i <= 3; i++) {
+                if (i !== bookingNumber) {
+                    var otherDetailsElement = document.getElementById('bookingDetails' + i);
+                    if (otherDetailsElement) {
+                        otherDetailsElement.style.display = 'none';
+                    }
+                }
+            }
+
+            
+            var bookingDetailsElement = document.getElementById('bookingDetails');
+            bookingDetailsElement.style.display = 'block';
+        }
+
+
+
+        function submitFeedback() {
+            var feedbackTextarea = document.getElementById('feedbackTextarea');
+            var feedback = feedbackTextarea.value;
+
+            
+            console.log('Feedback submitted:', feedback);
+
+            
+            feedbackTextarea.value = '';
+
+            
+            toggleFeedback();
+        }
+    </script>
+
+</body>
+</html>

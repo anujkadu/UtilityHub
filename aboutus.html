@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>About Us| Utility Hub</title>
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo.jpeg">    
+    <body>
+      
+      <img src="images/logo.jpeg" class="logo" style="width: 200px;
+      cursor: pointer;
+      padding-top: 35px;
+      padding-left: 35px;
+      overflow-clip-margin: content-box;
+      overflow: clip;">
+    <div class="">
+        <div class="text-center px-3 py-16 max-w-7xl mx-auto">
+          <h1 class="font-black tracking-tight text-slate-900 text-3xl dark:text-slate-100 sm:text-4xl">About Us | Utility Hub</h1>
+          <p class="mt-3 text-lg max-w-lg mx-auto">UtilityHub is an online platform that connects customers with local service providers in various categories, including home cleaning, pest control, plumbing, fitness, and beauty services. </p>
+          <div class="grid gap-2 mt-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div class="text-center"><img class="rounded-full w-60 mx-auto mb-4 bg-blue-100" alt="No alt" src="images/about/joel.png">
+              <h1 class="text-2xl font-bold dark:text-slate-200 text-slate-800">Joel Mathew Job</h1>
+              <p class="">CEO&nbsp; &amp; CTO</p>
+            </div>
+            <div class="text-center"><img class="rounded-full w-60 mx-auto mb-4 bg-blue-100" alt="No alt" src="images/about/basil.png">
+              <h1 class="text-2xl font-bold dark:text-slate-200 text-slate-800">Basil Mathai</h1>
+              <p class="">Marketing Director</p>
+            </div>
+            <div class="text-center"><img class="rounded-full w-60 mx-auto mb-4 bg-blue-100" alt="No alt" src="images/about/sam.png">
+              <h1 class="text-2xl font-bold dark:text-slate-200 text-slate-800">Samiksha</h1>
+              <p class="">Graphic Designer</p>
+            </div>
+            <div class="text-center"><img class="rounded-full w-60 mx-auto mb-4 bg-blue-100" alt="No alt" src="images/about/anuj.png">
+              <h1 class="text-2xl font-bold dark:text-slate-200 text-slate-800">Anuj Kadu</h1>
+              <p class="">Developer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+      <link id="heading-font" rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" media="all" />
+      <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        
+      </style>
+    <script>
+        window.tailwind.config = {
+          "darkMode": "class",
+          "theme": {
+            "fontFamily": {
+              "heading": ["DM Sans", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "\"Segoe UI\"", "Roboto", "\"Helvetica Neue\"", "Arial", "\"Noto Sans\"", "sans-serif", "\"Apple Color Emoji\"", "\"Segoe UI Emoji\"", "\"Segoe UI Symbol\"", "\"Noto Color Emoji\""],
+              "body": ["DM Sans", "ui-sans-serif", "system-ui", ]
+            },
+            "extend": {
+              "borderRadius": {
+                "global": "5px"
+              },
+              "colors": {
+                "primary": {
+                  "50": "#f8f5ff",
+                  "100": "#eee6fe",
+                  "200": "#ddcefd",
+                  "300": "#c1a6fc",
+                  "400": "#844df9",
+                  "500": "#4d07e4",
+                  "600": "#3705a3",
+                  "700": "#280477",
+                  "800": "#170245",
+                  "900": "#0c0123",
+                  "950": "#070114",
+                  "DEFAULT": "#570df8"
+                },
+                "secondary": {
+                  "50": "#fff5fd",
+                  "100": "#ffe6f9",
+                  "200": "#fecdf3",
+                  "300": "#fea4e9",
+                  "400": "#fd49d3",
+                  "500": "#e802b3",
+                  "600": "#a70280",
+                  "700": "#79015d",
+                  "800": "#470136",
+                  "900": "#23001b",
+                  "950": "#140010",
+                  "DEFAULT": "#f002b8"
+                }
+              }
+            }
+          },
+          "plugins": [window.tailwind.plugin.withOptions(({
+            prefix = "ui"
+          } = {}) => {
+            return ({
+              addVariant
+            }) => {
+              for (let state of ["open", "checked", "selected", "active", "disabled"]) {
+                addVariant(`${prefix}-${state}`, [
+                  `&[data-headlessui-state~="${state}"]`,
+                  `:where([data-headlessui-state~="${state}"]) &`,
+                ]);
+    
+                addVariant(`${prefix}-not-${state}`, [
+                  `&[data-headlessui-state]:not([data-headlessui-state~="${state}"])`,
+                  `:where([data-headlessui-state]:not([data-headlessui-state~="${state}"])) &:not([data-headlessui-state])`,
+                ]);
+              }
+            };
+          }), ]
+        };
+      </script>
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+      <div class="py-6 sm:py-8 lg:py-12">
+        <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
+          <div class="mb-10 md:mb-16">
+            <h2 class="font-bold text-center mb-4 text-3xl text-slate-900 dark:text-slate-100 md:mb-6 lg:text-4xl">Our competitive advantage</h2>
+            <!-- <p class="max-w-screen-md md:text-lg text-center mx-auto">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p> -->
+          </div>
+          <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-12 xl:gap-16">
+            <div class="flex flex-col items-center">
+              <div class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center text-indigo-500 mb-2 sm:mb-4"><span class="w-full h-full text-primary"><svg class="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                  </svg></span></div>
+              <h3 class="text-lg md:text-xl font-semibold text-center mb-2">Growth</h3>
+              <p class="text-center mb-2">We aim to promote growth of the service providers as well your reach for all service providers.</p>
+              <!-- <a class="font-bold transition duration-100 text-primary hover:text-primary-700 active:text-primary-700" href="#">More</a> -->
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center text-indigo-500 mb-2 sm:mb-4"><span class="w-full h-full text-primary"><svg class="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg></span></div>
+              <h3 class="text-lg md:text-xl font-semibold text-center mb-2">Security</h3>
+              <p class="text-center mb-2">UtilityHub is secure and safe, your information is safe and is not shared with anyone.</p>
+              <!-- <a class="font-bold transition duration-100 text-primary hover:text-primary-700 active:text-primary-700" href="#">More</a> -->
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center text-indigo-500 mb-2 sm:mb-4"><span class="w-full h-full text-primary"><svg class="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                  </svg></span></div>
+              <h3 class="text-lg md:text-xl font-semibold text-center mb-2">Customized</h3>
+              <p class="text-center mb-2">We work with you to understand your specific needs and to provide customized cloud solutions that meet those needs.</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center text-indigo-500 mb-2 sm:mb-4"><span class="w-full h-full text-primary"><svg class="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg></span></div>
+              <h3 class="text-lg md:text-xl font-semibold text-center mb-2">Speed</h3>
+              <p class="text-center mb-2">We promise to respond quickly to your inquiries and service requests, ensuring that your needs are addressed promptly.</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center text-indigo-500 mb-2 sm:mb-4"><span class="w-full h-full text-primary"><svg class="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg></span></div>
+              <h3 class="text-lg md:text-xl font-semibold text-center mb-2">Support</h3>
+              <p class="text-center mb-2">Active help and support, you can always contact us for any issues you face</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center text-indigo-500 mb-2 sm:mb-4"><span class="w-full h-full text-primary"><svg class="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg></span></div>
+              <h3 class="text-lg md:text-xl font-semibold text-center mb-2">Time</h3>
+              <p class="text-center mb-2">Services provided by us is accesible anytime. Late night or early Morning </p>
+            </div>
+          </div>
+        </div>
+      </div>
+</head>
+
+    
+</body>
+</html>

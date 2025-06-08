@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bargain Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: #f0f0f0; /* Set a background color for the entire page */
+        }
+
+        .bargain-header {
+            text-align: center;
+            background-color: #000; /* Black background color for the header */
+            color: #fff; /* White text color for the title */
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .content {
+            flex-grow: 1;
+            padding: 20px; /* Adjust as needed */
+            text-align: center;
+        }
+
+        #price-slider-container {
+            margin: 20px 0;
+        }
+
+        #price-indicator {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #price-slider {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        #chat-title {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+       
+
+        #message-input {
+            width: 60%;
+            margin-top: 10px;
+        }
+
+        #send-btn {
+            padding: 8px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #name-input {
+            width: 60%;
+            margin-top: 10px;
+        }
+
+        #chat-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-top: 10px;
+        }
+
+        .sender {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bargain-header">
+        <h1>Bargain Page</h1>
+    </div>
+
+    <div class="content">
+        <div id="price-slider-container">
+            <label for="price-slider">Select Your Price:</label>
+            <div id="price-indicator">2500 Rupees</div>
+            <input type="range" id="price-slider" min="0" max="5000" value="2500" oninput="updatePrice()">
+        </div>
+
+        <div id="chat-title">Chat with the Provider</div>
+        <input type="text" id="name-input" placeholder="Your Name" readonly>
+        <input type="text" id="message-input" placeholder="Type your message...">
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+        <div id="chat-box"></div>
+    </div>
+
+    <script>
+        function updatePrice() {
+            var priceIndicator = document.getElementById('price-indicator');
+            var priceSlider = document.getElementById('price-slider');
+            priceIndicator.textContent = priceSlider.value + " Rupees";
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fetch the user's name from the user.html page
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var parser = new DOMParser();
+                    var htmlDoc = parser.parseFromString(this.responseText, 'text/html');
+                    var userName = htmlDoc.getElementById('userName').textContent;
+                    document.getElementById('name-input').value = userName;
+                }
+            };
+            xhr.open('GET', 'user.html', true);
+            xhr.send();
+        });
+
+        // Your existing JavaScript code here
+
+        function sendMessage() {
+            var nameInput = document.getElementById('name-input');
+            var messageInput = document.getElementById('message-input');
+            var chatBox = document.getElementById('chat-box');
+
+            if (nameInput.value.trim() !== "" && messageInput.value.trim() !== "") {
+                var message = document.createElement('div');
+                message.className = 'message';
+
+                var sender = document.createElement('div');
+                sender.className = 'sender';
+                sender.textContent = nameInput.value;
+                message.appendChild(sender);
+
+                var content = document.createElement('div');
+                content.textContent = messageInput.value;
+                message.appendChild(content);
+
+                chatBox.appendChild(message);
+                nameInput.value = "";
+                messageInput.value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
